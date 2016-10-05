@@ -8,13 +8,17 @@ import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { HeroService }          from './hero.service';
-import {HeroSearchComponent} from "./hero-search.component";
+
 import { routing }              from './app.routing';
 import './rxjs-extensions';
+import {HighlightDirective} from "./highlight.directive";
+import {TitleComponent} from "./title.component";
+import {UserService} from "./user.service";
+
+import {ContactModule} from "./contact/contact.module";
+import {HeroModule} from "./hero/hero.module";
+import {DashboardModule} from "./dashboard/dashboard.module";
+
 
 
 @NgModule({
@@ -23,17 +27,18 @@ import './rxjs-extensions';
         FormsModule,
         HttpModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
-        routing
+        routing,
+        ContactModule,
+        HeroModule,
+        DashboardModule
     ],
     declarations: [
         AppComponent,
-        DashboardComponent,
-        HeroDetailComponent,
-        HeroesComponent,
-        HeroSearchComponent
+        HighlightDirective,
+        TitleComponent,
     ],
     providers: [
-        HeroService,
+        UserService
     ],
     bootstrap: [ AppComponent ]
 })

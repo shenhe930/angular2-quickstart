@@ -15,7 +15,6 @@ var HeroSearchService = (function () {
         this.http = http;
     }
     HeroSearchService.prototype.search = function (term) {
-        //noinspection TypeScriptUnresolvedFunction
         return this.http
             .get("app/heroes/?name=" + term)
             .map(function (r) { return r.json().data; });
