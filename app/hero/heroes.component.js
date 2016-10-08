@@ -10,11 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var hero_service_1 = require('./hero.service');
+var hero_service_1 = require('../core/hero.service');
+var user_service_1 = require("../core/user.service");
 var HeroesComponent = (function () {
-    function HeroesComponent(router, heroService) {
+    function HeroesComponent(router, heroService, userService) {
         this.router = router;
         this.heroService = heroService;
+        this.userService = userService;
+        this.userName = '';
+        this.userName = userService.userName;
     }
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
@@ -27,7 +31,7 @@ var HeroesComponent = (function () {
         this.selectedHero = hero;
     };
     HeroesComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['/detail', this.selectedHero.id]);
+        this.router.navigate(['heroes', this.selectedHero.id]);
     };
     HeroesComponent.prototype.add = function (name) {
         var _this = this;
@@ -59,7 +63,7 @@ var HeroesComponent = (function () {
             templateUrl: 'heroes.component.html',
             styleUrls: ['heroes.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, user_service_1.UserService])
     ], HeroesComponent);
     return HeroesComponent;
 }());

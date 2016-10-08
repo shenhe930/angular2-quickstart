@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 // Imports for loading & configuring the in-memory web api
 var angular2_in_memory_web_api_1 = require('angular2-in-memory-web-api');
@@ -18,12 +17,8 @@ var in_memory_data_service_1 = require('./in-memory-data.service');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 require('./rxjs-extensions');
-var highlight_directive_1 = require("./highlight.directive");
-var title_component_1 = require("./title.component");
-var user_service_1 = require("./user.service");
 var contact_module_1 = require("./contact/contact.module");
-var hero_module_1 = require("./hero/hero.module");
-var dashboard_module_1 = require("./dashboard/dashboard.module");
+var core_module_1 = require("./core/core.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,21 +26,14 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule,
                 http_1.HttpModule,
+                core_module_1.CoreModule.forRoot({ userName: 'Miss Marple' }),
                 angular2_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
                 app_routing_1.routing,
-                contact_module_1.ContactModule,
-                hero_module_1.HeroModule,
-                dashboard_module_1.DashboardModule
+                contact_module_1.ContactModule
             ],
             declarations: [
-                app_component_1.AppComponent,
-                highlight_directive_1.HighlightDirective,
-                title_component_1.TitleComponent,
-            ],
-            providers: [
-                user_service_1.UserService
+                app_component_1.AppComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

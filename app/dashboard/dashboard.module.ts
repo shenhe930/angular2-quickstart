@@ -1,13 +1,12 @@
 import { NgModule }           from '@angular/core';
-import { CommonModule }       from '@angular/common';
-import { FormsModule }        from '@angular/forms';
 
 import { routing }              from './dashboard.routing';
 import {HeroSearchComponent} from "./hero-search.component";
 import {HeroSearchService} from "./hero-search.service";
 import {DashboardComponent} from "./dashboard.component";
+import {SharedModule} from "../shared/shared.module";
 @NgModule({
-    imports:      [ CommonModule, FormsModule,routing  ],
+    imports:      [ SharedModule,routing  ],
     declarations: [ DashboardComponent,HeroSearchComponent ],
     providers:    [ HeroSearchService ]
 })

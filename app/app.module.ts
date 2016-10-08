@@ -1,6 +1,5 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
 // Imports for loading & configuring the in-memory web api
@@ -11,36 +10,29 @@ import { AppComponent }         from './app.component';
 
 import { routing }              from './app.routing';
 import './rxjs-extensions';
-import {HighlightDirective} from "./highlight.directive";
-import {TitleComponent} from "./title.component";
-import {UserService} from "./user.service";
 
 import {ContactModule} from "./contact/contact.module";
 import {HeroModule} from "./hero/hero.module";
 import {DashboardModule} from "./dashboard/dashboard.module";
+import {CoreModule} from "./core/core.module";
 
 
 
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule,
         HttpModule,
+        CoreModule.forRoot({userName: 'Miss Marple'}),
         InMemoryWebApiModule.forRoot(InMemoryDataService),
         routing,
-        ContactModule,
-        HeroModule,
-        DashboardModule
+        ContactModule
     ],
     declarations: [
-        AppComponent,
-        HighlightDirective,
-        TitleComponent,
-    ],
-    providers: [
-        UserService
+        AppComponent
     ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {
+
+
 }

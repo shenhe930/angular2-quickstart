@@ -4,5 +4,5 @@ import {DashboardComponent} from "./dashboard.component";
 
 
 export const routing: ModuleWithProviders = RouterModule.forChild([
-    { path: 'dashboard', component: DashboardComponent}
+    { path: '', component: DashboardComponent}
 ]);
